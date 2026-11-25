@@ -206,11 +206,26 @@
     .price-old {
       font-size: 12px;
       color: #8AA0A8;
-      text-decoration: line-through;
-      direction: ltr;
+      direction: rtl;
       display: block;
       margin-top: 1px;
     }
+
+
+    .price-old .num { direction: ltr; unicode-bidi: isolate; display: inline-block; text-decoration: line-through; }
+    .sar { width: 0.82em; height: 0.92em; fill: currentColor; vertical-align: -0.08em; }
+
+    /* Tap to pause/play videos */
+    .video-wrap { cursor: pointer; }
+    .play-hint {
+      position: absolute; inset: 0; margin: auto;
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(13, 61, 74, 0.55);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.2s; pointer-events: none;
+    }
+    .play-hint svg { width: 28px; height: 28px; fill: #fff; margin-left: 4px; }
+    .video-wrap.paused .play-hint { opacity: 1; }
 
     /* Payment logos (Tabby + Tamara) */
     .payment-box {
@@ -411,6 +426,7 @@
   </style>
 </head>
 <body>
+<svg style="display:none" aria-hidden="true"><symbol id="sar" viewBox="50 -1262 1124 1256"><path transform="scale(1,-1)" d="M711 6 1136 96Q1167 165 1174 240L750 149Q718 79 711 6ZM1136 367Q1167 434 1174 510L843 440V575L1136 637Q1166 704 1174 780L843 710V1196Q768 1154 711 1085V682L579 654V1262Q502 1220 447 1151V626L151 563Q119 491 112 419L447 491V320L88 244Q58 177 50 101L425 180Q472 191 499 230L568 332Q579 348 579 369V519L711 547V276Z"/></symbol></svg>
 
   <header class="header">
     <img src="logo.jpg" alt="مستشفى بلسم - Balsam Hospital" class="logo-img">
@@ -435,11 +451,12 @@
     <div class="section-card">
       <div class="video-wrap">
         <video src="botox.mp4" autoplay muted loop playsinline webkit-playsinline></video>
+        <div class="play-hint"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       </div>
       <div class="card-body">
         <div class="section-label">عروض البوتوكس</div>
         <h2 class="offer-title">بوتوكس طبيعي لوجه أكثر شباباً</h2>
-        <p class="offer-desc">بشرة ناعمة وخالية من التجاعيد بإشراف طبي متخصص. نتائج طبيعية تدوم لأشهر.</p>
+        <p class="offer-desc">بشرة ناعمة وخالية من التجاعيد بإشراف طبي متخصص.</p>
         <div class="prices">
           <div class="price-item">
             <div class="price-info">
@@ -447,8 +464,8 @@
               <div class="price-size">1 مللي</div>
             </div>
             <div class="price-values">
-              <span class="price-new">799 ر.س</span>
-              <span class="price-old">بدل من 1200 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 799</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 1200</span></span>
             </div>
           </div>
           <div class="price-item">
@@ -457,8 +474,8 @@
               <div class="price-size">2 مللي</div>
             </div>
             <div class="price-values">
-              <span class="price-new">1199 ر.س</span>
-              <span class="price-old">بدل من 1600 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 1199</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 1600</span></span>
             </div>
           </div>
         </div>
@@ -487,6 +504,7 @@
     <div class="section-card">
       <div class="video-wrap">
         <video src="filler.mp4" autoplay muted loop playsinline webkit-playsinline></video>
+        <div class="play-hint"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       </div>
       <div class="card-body">
         <div class="section-label">عروض الفيلر</div>
@@ -499,8 +517,8 @@
               <div class="price-size">1 مللي</div>
             </div>
             <div class="price-values">
-              <span class="price-new">899 ر.س</span>
-              <span class="price-old">بدل من 1200 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 899</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 1200</span></span>
             </div>
           </div>
           <div class="price-item">
@@ -509,8 +527,8 @@
               <div class="price-size">1 مللي</div>
             </div>
             <div class="price-values">
-              <span class="price-new">899 ر.س</span>
-              <span class="price-old">بدل من 1200 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 899</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 1200</span></span>
             </div>
           </div>
           <div class="price-item">
@@ -519,8 +537,8 @@
               <div class="price-size">2 مللي</div>
             </div>
             <div class="price-values">
-              <span class="price-new">1499 ر.س</span>
-              <span class="price-old">بدل من 1800 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 1499</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 1800</span></span>
             </div>
           </div>
           <div class="price-item">
@@ -529,8 +547,8 @@
               <div class="price-size">3 مللي</div>
             </div>
             <div class="price-values">
-              <span class="price-new">1999 ر.س</span>
-              <span class="price-old">بدل من 2700 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 1999</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 2700</span></span>
             </div>
           </div>
         </div>
@@ -558,6 +576,7 @@
     <div class="section-card">
       <div class="video-wrap">
         <video src="laser.mp4" autoplay muted loop playsinline webkit-playsinline></video>
+        <div class="play-hint"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       </div>
       <div class="card-body">
         <div class="section-label">عروض الليزر والجسم</div>
@@ -570,8 +589,8 @@
               <div class="price-size">جلسة</div>
             </div>
             <div class="price-values">
-              <span class="price-new">299 ر.س</span>
-              <span class="price-old">بدل من 450 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 299</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 450</span></span>
             </div>
           </div>
           <div class="price-item">
@@ -580,8 +599,8 @@
               <div class="price-size">5 رتوش</div>
             </div>
             <div class="price-values">
-              <span class="price-new">1499 ر.س</span>
-              <span class="price-old">بدل من 1800 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 1499</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 1800</span></span>
             </div>
           </div>
           <div class="price-item">
@@ -590,8 +609,8 @@
               <div class="price-size">مع 3 رتوش</div>
             </div>
             <div class="price-values">
-              <span class="price-new">999 ر.س</span>
-              <span class="price-old">بدل من 1400 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 999</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 1400</span></span>
             </div>
           </div>
           <div class="price-item">
@@ -600,8 +619,8 @@
               <div class="price-size">جلسة + جلسة مجاناً</div>
             </div>
             <div class="price-values">
-              <span class="price-new">149 ر.س</span>
-              <span class="price-old">بدل من 200 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 149</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 200</span></span>
             </div>
           </div>
         </div>
@@ -629,6 +648,7 @@
     <div class="section-card">
       <div class="video-wrap">
         <video src="skin.mp4" autoplay muted loop playsinline webkit-playsinline></video>
+        <div class="play-hint"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       </div>
       <div class="card-body">
         <div class="section-label">عروض التقشير والنضارة</div>
@@ -641,8 +661,8 @@
               <div class="price-size">جلسة</div>
             </div>
             <div class="price-values">
-              <span class="price-new">199 ر.س</span>
-              <span class="price-old">بدل من 400 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 199</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 400</span></span>
             </div>
           </div>
           <div class="price-item">
@@ -651,8 +671,8 @@
               <div class="price-size">لنضارة وآثار الحبوب</div>
             </div>
             <div class="price-values">
-              <span class="price-new">250 ر.س</span>
-              <span class="price-old">بدل من 500 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 250</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 500</span></span>
             </div>
           </div>
           <div class="price-item">
@@ -661,8 +681,8 @@
               <div class="price-size">جلسة</div>
             </div>
             <div class="price-values">
-              <span class="price-new">699 ر.س</span>
-              <span class="price-old">بدل من 900 ر.س</span>
+              <span class="price-new"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 699</span>
+              <span class="price-old">بدلاً من <span class="num"><svg class="sar" role="img" aria-label="ريال سعودي"><use href="#sar"/></svg> 900</span></span>
             </div>
           </div>
         </div>
@@ -685,7 +705,7 @@
 
   <footer class="footer">
     <strong>مستشفى بلسم</strong>
-    تطبيق الشروط والأحكام • Accredited by HIMSS & CBAHI
+    Accredited by HIMSS &amp; CBAHI
     <div class="footer-contact">
       <span class="phone">9200 24111</span>
       <img src="barcode.jpg" alt="باركود الرقم الموحد" class="footer-barcode">
@@ -696,5 +716,15 @@
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
+  <script>
+    document.querySelectorAll('.video-wrap').forEach(function (wrap) {
+      var v = wrap.querySelector('video');
+      function sync() { wrap.classList.toggle('paused', v.paused); }
+      wrap.addEventListener('click', function () {
+        if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); }
+      });
+      v.addEventListener('play', sync); v.addEventListener('pause', sync);
+    });
+  </script>
 </body>
 </html>
